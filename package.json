@@ -1,0 +1,11 @@
+{
+  "name": "ng2-cli-node",
+  "version": "1.0.0",
+  "description": "a test setup for node and angular2 cli",
+  "main": "server/main.js",
+  "scripts": {
+    "test": "cd client;ng test;"
+  },
+  "author": "mashhoodr",
+  "license": "ISC"
+}

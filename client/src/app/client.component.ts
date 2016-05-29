@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['client.component.css']
 })
 export class ClientAppComponent {
-  title = 'client works!';
+  title = 'Hello Worldz!';
 }
