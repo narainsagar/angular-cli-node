@@ -18,12 +18,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/api', api);
+// serve the angular-app
+app.get('/*', function(req, res){
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
-// catch 404 and forward to error handler
+// catch 404 and send back to index.html 
+// (technically this should never run since all will be caught above)
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  console.log('Not found?');
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 // error handlers
@@ -33,10 +37,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    res.send('error:' + err.message);
   });
 }
 
@@ -44,10 +45,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res.send('error:' + err.message);
 });
 
 
