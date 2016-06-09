@@ -6,7 +6,15 @@
   <base href="/">
 
   {{#unless environment.production}}
-  <script src="http://localhost:4200/ember-cli-live-reload.js" type="text/javascript"></script>
+  <script>
+    (function(d, script) {
+      script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = window.location.protocol + '//' + window.location.hostname + ':4200/ember-cli-live-reload.js';
+      d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+  </script>
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -14,18 +22,12 @@
 <body>
   <client-app>Loading...</client-app>
 
-  
-
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
     <script>
       System.import('system-config.js').then(function () {
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-
-  
-
-
 
 </body>
 </html>
