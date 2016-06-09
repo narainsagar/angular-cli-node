@@ -8,7 +8,7 @@ The setup itself was straight forward enough, just a few adjustments needed:
 - Hardcode (to be fixed) url for ember-cli-live-reload to node
 
 TODOs:
-- Fix the hardcoded route for ember-cli-live-reload
-- Add testing for server
-- Setup proper API example with Service
-- Deployment documentation (may be add anisble script)
+- [x] Fix the hardcoded route for ember-cli-live-reload
+- [ ] Add testing for server
+- [ ] Setup proper API example with Service
+- [ ] Deployment documentation (may be add anisble script)
